@@ -5,5 +5,5 @@ interface BaseLayoutProps {
 }
 
 export default function BaseLayout1({ children }: BaseLayoutProps) {
-  return <div className="min-h-screen my-bg px-10">{children}</div>;
+  return <div className="min-h-screen my-bg-1 px-10">{children}</div>;
 }
