@@ -4,6 +4,6 @@ interface BaseLayoutProps {
   children: ReactNode;
 }
 
-export default function BaseLayout1({ children }: BaseLayoutProps) {
+export default function BaseLayout2({ children }: BaseLayoutProps) {
   return <div className="min-h-screen my-bg-1 px-10">{children}</div>;
 }
