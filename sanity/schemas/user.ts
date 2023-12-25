@@ -14,11 +14,19 @@ export const userType = defineType({
     }),
 
     defineField({
+      name: "userId",
+      title: "User Id",
+      type: "string",
+      readOnly: true,
+      description: "user email address",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
       name: "name",
       title: "Name",
       type: "string",
       description: "user's name",
-      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
@@ -26,7 +34,6 @@ export const userType = defineType({
       title: "Telephone",
       type: "string",
       description: "user's telephone number",
-      validation: (Rule) => Rule.required(),
     }),
 
     defineField({

@@ -1,49 +1,50 @@
 import { FileRule, defineField, defineType } from "sanity";
 
+// userId: string;
+// title: string; //name
+// banner?: string;
+// images: string[];
+// description: string;
+// price: number;
+// type: string;
+// asset: string;
+
 export const productType = defineType({
   name: "product",
   title: "Product",
   type: "document",
   fields: [
     defineField({
-      name: "title",
-      title: "Title",
+      name: "name",
+      title: "Name",
       type: "string",
       description: "product's big title",
       validation: (Rule) => Rule.required(),
     }),
 
     defineField({
-      name: "subitle",
-      title: "Sub-Title",
-      type: "string",
-      description: "product's sub title",
-      validation: (Rule) => Rule.required(),
-    }),
-
-    defineField({
-      name: "product_image",
-      title: "Product Image",
+      name: "banner",
+      title: "Banner",
       type: "image",
-      description: "product cover image",
+      description: "product banner",
       options: {
         hotspot: true,
       },
     }),
 
     defineField({
-      name: "description_images",
-      title: "Description Images",
+      name: "images",
+      title: "Images",
       description: "Content Images",
       type: "array",
       of: [{ type: "image" }],
+      validation: (Rule) => Rule.max(3),
     }),
 
     defineField({
       name: "description",
       title: "Description",
-      type: "array",
-      of: [{ type: "block" }],
+      type: "text",
     }),
 
     defineField({
@@ -81,7 +82,7 @@ export const productType = defineType({
           { title: "Education", value: "education" },
         ],
       },
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     }),
 
     defineField({
