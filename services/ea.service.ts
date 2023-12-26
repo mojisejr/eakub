@@ -1,6 +1,7 @@
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import { CreateNewEADTO } from "@/interfaces/dtos/new-ea.dto";
+import { EA } from "@/interfaces/ea";
 
 export async function uploadFile(file: File, type: "file" | "image") {
   try {
@@ -56,7 +57,20 @@ export async function createNewEA(data: CreateNewEADTO) {
 }
 
 export async function getEA() {
-  const query = groq`*[_type == "product"]`;
-  const response = await client.fetch(query);
-  console.log(response[0]);
+  const query = groq`*[_type == "product" && isListing == true]{
+    _id,
+    name,
+    "user": user->name,
+    type,
+    verified,
+    price,
+    description,
+    "banner": banner.asset->url,
+    "images": images[].asset->url,
+    "createdAt": _createdAt,
+    "updatedAt": _updatedAt
+  }`;
+  const response = await client.fetch<EA[]>(query);
+  // console.log(response);
+  return response;
 }
