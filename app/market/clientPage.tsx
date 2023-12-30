@@ -1,4 +1,6 @@
+"use client";
 import EAMarketCard from "@/components/market/card";
+import { useCart } from "@/context/cart-provider";
 import { EA } from "@/interfaces/ea";
 
 interface ClientMarketProps {

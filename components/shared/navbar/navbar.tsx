@@ -2,6 +2,8 @@ import Image from "next/image";
 import { auth, currentUser } from "@clerk/nextjs";
 import LoginButton from "./clientNavbar";
 import { checkIfSignedUser, createNewUser } from "@/services/user.service";
+import Link from "next/link";
+import CartLink from "./clientCartLink";
 
 export default async function Navbar() {
   const { userId } = auth();
@@ -21,11 +23,19 @@ export default async function Navbar() {
     <div className="sticky navbar w-full h-[60px] bg-base-100 border-b-[1px] border-white border-opacity-30 px-10">
       <div className="navbar-start">
         <div className="relative w-[200px] h-[45px]">
-          <Image src="/images/logo.png" fill alt="logo" />
+          <Link href="/">
+            <Image src="/images/logo.png" fill alt="logo" />
+          </Link>
         </div>
       </div>
+      <div className="navbar-center">
+        <Link href="/market">Market</Link>
+      </div>
       <div className="navbar-end">
-        <LoginButton userId={userId!} />
+        <div className="flex gap-2 items-center">
+          <CartLink />
+          <LoginButton userId={userId!} />
+        </div>
       </div>
     </div>
   );

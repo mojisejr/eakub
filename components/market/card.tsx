@@ -1,6 +1,7 @@
 import { EA } from "@/interfaces/ea";
 import RatingStars from "../product/rating-stars";
 import VerifiedBadge from "../product/verified-badge";
+import Link from "next/link";
 
 interface EAMarketCardProps {
   ea: EA;
@@ -19,9 +20,12 @@ export default function EAMarketCard({ ea }: EAMarketCardProps) {
         <div className="font-sembold">฿{ea.price}</div>
         <div className="flex justify-between py-2">
           {ea.verified ? <VerifiedBadge /> : <div></div>}
-          <button className="btn btn-primary hover:bg-accent  font-semibold">
+          <Link
+            href={`/market/${ea._id}`}
+            className="btn btn-primary hover:bg-accent  font-semibold"
+          >
             details
-          </button>
+          </Link>
         </div>
         <div className="text-sm text-right text-slate-400">
           by {ea.user.slice(0, 15)}...

@@ -57,7 +57,7 @@ export async function createNewEA(data: CreateNewEADTO) {
 }
 
 export async function getEA() {
-  const query = groq`*[_type == "product" && isListing == true]{
+  const query = groq`*[_type == "product"]{
     _id,
     name,
     "user": user->name,
@@ -71,6 +71,26 @@ export async function getEA() {
     "updatedAt": _updatedAt
   }`;
   const response = await client.fetch<EA[]>(query);
-  // console.log(response);
+  console.log(response);
   return response;
+}
+
+export async function getEAById(_id: string) {
+  const query = groq`*[_type == "product" && isListing == true && _id == "${_id}"]{
+    _id,
+    name,
+    "user": user->name,
+    type,
+    verified,
+    price,
+    description,
+    "banner": banner.asset->url,
+    "images": images[].asset->url,
+    "createdAt": _createdAt,
+    "updatedAt": _updatedAt
+  }`;
+
+  const response = await client.fetch<EA[]>(query);
+  // console.log(response);
+  return response[0];
 }
