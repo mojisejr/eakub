@@ -84,6 +84,8 @@ export function CartProvider({ children }: CartProviderProps) {
             ...i,
             qty: i.qty + 1,
           };
+        } else {
+          return i;
         }
       }) as CartItem[];
 
@@ -159,7 +161,6 @@ export function CartProvider({ children }: CartProviderProps) {
     return JSON.parse(localStorage.getItem(`cart_${userId}`)!) as Cart;
   }
   function updatItemInCart(itemInCart: CartItem[]) {
-    console.log(itemInCart);
     const cart = getCart();
 
     const subtotal = cart

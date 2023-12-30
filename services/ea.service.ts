@@ -71,7 +71,7 @@ export async function getEA() {
     "updatedAt": _updatedAt
   }`;
   const response = await client.fetch<EA[]>(query);
-  console.log(response);
+  // console.log(response);
   return response;
 }
 

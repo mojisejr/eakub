@@ -28,8 +28,13 @@ export default async function Navbar() {
           </Link>
         </div>
       </div>
-      <div className="navbar-center">
-        <Link href="/market">Market</Link>
+      <div className="navbar-center flex gap-4">
+        <Link className="btn btn-ghost" href="/market">
+          Market
+        </Link>
+        <Link className="btn btn-ghost" href="/upload">
+          Upload
+        </Link>
       </div>
       <div className="navbar-end">
         <div className="flex gap-2 items-center">

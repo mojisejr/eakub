@@ -2,6 +2,7 @@
 
 import { useCart } from "@/context/cart-provider";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function ClientCart() {
   const { cart, increment, decrement, removeItem } = useCart();
@@ -20,10 +21,26 @@ export default function ClientCart() {
 
   return (
     <div className="grid grid-col-1 place-items-center gap-4 pt-10">
-      <h2 className="text-[40px] font-semibold">ตระกร้าของคุณ</h2>
+      <motion.h2
+        initial={{ y: 3, opacity: 0 }}
+        transition={{
+          duration: 0.3,
+        }}
+        animate={{ y: 0, opacity: 1 }}
+        className="text-[40px] font-semibold"
+      >
+        ตระกร้าของคุณ
+      </motion.h2>
       <>
         {cart ? (
-          <table className="table table-sm max-w-xl p-3 bg-base-200 shadow">
+          <motion.table
+            initial={{ y: 3, opacity: 0 }}
+            transition={{
+              duration: 0.2,
+            }}
+            animate={{ y: 0, opacity: 1 }}
+            className="table table-sm max-w-xl p-3 bg-base-200 shadow"
+          >
             <thead>
               <tr>
                 <th>del</th>
@@ -107,7 +124,7 @@ export default function ClientCart() {
                 </tr>
               )}
             </tfoot>
-          </table>
+          </motion.table>
         ) : (
           <div className="loading looading-spinner"></div>
         )}
