@@ -20,7 +20,7 @@ export default function HeroTitle() {
         การเทรดของท่านกับ <br />
         <span className="h3-primary">EAKUB</span>
       </h2>
-      <Button title="สมัครใช้งานฟรี" />
+      <Button title="เริ่มเลย!" />
     </div>
   );
 }

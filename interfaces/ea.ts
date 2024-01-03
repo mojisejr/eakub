@@ -6,7 +6,7 @@ export interface EA {
   user: string;
   verified: boolean;
   banner: string;
-  images?: string[];
+  images?: string[] | null;
   description?: string;
   updatedAt?: string;
   createdAt?: string;

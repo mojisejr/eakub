@@ -16,7 +16,7 @@ export const apiKey = assertValue(
   "Missing environment variable: API KEY IS MISSING"
 );
 
-export const useCdn = false;
+export const useCdn = true;
 
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {

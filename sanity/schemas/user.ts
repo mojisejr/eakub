@@ -10,7 +10,7 @@ export const userType = defineType({
       title: "Email",
       type: "string",
       description: "user email address",
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     }),
 
     defineField({
@@ -19,7 +19,7 @@ export const userType = defineType({
       type: "string",
       readOnly: true,
       description: "user email address",
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     }),
 
     defineField({
@@ -34,15 +34,6 @@ export const userType = defineType({
       title: "Telephone",
       type: "string",
       description: "user's telephone number",
-    }),
-
-    defineField({
-      name: "product",
-      title: "Products",
-      description: "products of owner",
-      type: "array",
-      of: [{ type: "product" }],
-      readOnly: true,
     }),
   ],
 });

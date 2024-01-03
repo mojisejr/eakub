@@ -3,8 +3,14 @@
 import { useCart } from "@/context/cart-provider";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Cart } from "@/interfaces/cart";
+import { useRouter } from "next/navigation";
 
-export default function ClientCart() {
+interface ClientCartProps {
+  checkout: (cart: Cart, basePath: string) => void;
+}
+
+export default function ClientCart({ checkout }: ClientCartProps) {
   const { cart, increment, decrement, removeItem } = useCart();
 
   function handleIncrement(eaId: string, qty: number) {
@@ -17,6 +23,10 @@ export default function ClientCart() {
 
   function handleRemoveItem(eaId: string) {
     removeItem(eaId);
+  }
+
+  function handleCheckout(cart: Cart) {
+    checkout(cart, window.location.origin);
   }
 
   return (
@@ -119,7 +129,12 @@ export default function ClientCart() {
                       .reduce((a, b) => a + b, 0)}
                   </td>
                   <td colSpan={2}>
-                    <button className="btn btn-primary w-full">Checkout</button>
+                    <button
+                      onClick={() => handleCheckout(cart)}
+                      className="btn btn-primary w-full"
+                    >
+                      Checkout
+                    </button>
                   </td>
                 </tr>
               )}

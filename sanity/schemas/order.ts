@@ -6,6 +6,13 @@ export const orderType = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "stripeSessionId",
+      title: "Stripe Session ID",
+      type: "string",
+      readOnly: true,
+    }),
+
+    defineField({
       name: "stripeIntentId",
       title: "Stripe Intent ID",
       type: "string",
@@ -33,6 +40,18 @@ export const orderType = defineType({
       name: "subtotal",
       title: "Sub total",
       type: "number",
+    }),
+
+    defineField({
+      name: "paymentStatus",
+      title: "Payment Status",
+      type: "string",
+    }),
+
+    defineField({
+      name: "status",
+      title: "Session Status",
+      type: "string",
     }),
 
     defineField({

@@ -19,7 +19,7 @@ export const productType = defineType({
       title: "Name",
       type: "string",
       description: "product's big title",
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     }),
 
     defineField({
@@ -51,7 +51,7 @@ export const productType = defineType({
       name: "price",
       title: "Price",
       type: "number",
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     }),
 
     defineField({
@@ -89,7 +89,7 @@ export const productType = defineType({
       name: "product_file",
       title: "Product File",
       type: "file",
-      validation: (Rule: FileRule) => Rule.required().assetRequired(),
+      // validation: (Rule: FileRule) => Rule.required().assetRequired(),
     }),
 
     defineField({
@@ -97,7 +97,7 @@ export const productType = defineType({
       title: "Slug",
       type: "slug",
       options: {
-        source: "title",
+        source: "name",
       },
     }),
 
@@ -120,6 +120,20 @@ export const productType = defineType({
       description: "product's owner",
       type: "reference",
       to: [{ type: "user" }],
+    }),
+
+    defineField({
+      name: "onetime",
+      title: "One Time Purchasing",
+      type: "boolean",
+      initialValue: true,
+    }),
+
+    defineField({
+      name: "buyer",
+      title: "buyers",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "user" }] }],
     }),
   ],
 });

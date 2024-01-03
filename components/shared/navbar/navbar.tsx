@@ -35,6 +35,9 @@ export default async function Navbar() {
         <Link className="btn btn-ghost" href="/upload">
           Upload
         </Link>
+        <Link href="/dashboard?tab=buy" className="btn btn-ghost">
+          Dashboard
+        </Link>
       </div>
       <div className="navbar-end">
         <div className="flex gap-2 items-center">
