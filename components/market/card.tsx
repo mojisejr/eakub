@@ -15,7 +15,7 @@ export default function EAMarketCard({ ea }: EAMarketCardProps) {
       </figure>
       <div className="card-body">
         <h2 className="card-title">{ea.name}</h2>
-        <RatingStars />
+        <RatingStars rating={3} />
         <p className="py-2">{`${ea.description?.slice(0, 80)}`}</p>
         <div className="font-sembold">฿{ea.price}</div>
         <div className="flex justify-between py-2">
