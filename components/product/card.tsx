@@ -9,7 +9,7 @@ export default function ProductCard() {
       </figure>
       <div className="card-body">
         <h2 className="card-title">SMA-200-Auto-Action</h2>
-        <RatingStars />
+        <RatingStars rating={3} />
         <p className="py-2">If a dog chews shoes whose shoes does he choose?</p>
         <div className="flex justify-between py-2">
           <VerifiedBadge />
