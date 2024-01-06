@@ -13,6 +13,7 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.23.2",
     "@stripe/stripe-js": "^2.2.2",
+    "dayjs": "^1.11.10",
     "framer-motion": "^10.16.16",
     "next": "14.0.4",
     "next-sanity": "^5.5.11",

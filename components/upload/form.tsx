@@ -187,7 +187,7 @@ export default function UploadFormB({ userId }: UploadFormProps) {
           </div>
         </div>
 
-        <FormButton />
+        <FormButton text="ขายเลย" />
       </form>
     </>
   );

@@ -15,6 +15,7 @@ export const productCommentType = defineType({
       name: "rating",
       title: "Rating",
       type: "number",
+      validation: (Rule) => Rule.max(5).min(0),
     }),
 
     defineField({

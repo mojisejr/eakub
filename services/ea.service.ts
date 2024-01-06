@@ -70,7 +70,7 @@ export async function getEA() {
     "images": images[].asset->url,
   }`;
   const response = await client.fetch<EA[]>(query);
-  console.log(response.length);
+  // console.log(response.length);
   return response;
 }
 
